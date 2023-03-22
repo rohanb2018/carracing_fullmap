@@ -20,3 +20,17 @@ To test the environment using human keyboard inputs, simply run:
 ```
 python fullmap_carracing.py
 ```
+
+If you want to use the environment in OpenAI Gym RL scenarios, move `fullmap_carracing.py` to your working directory,
+and do the following:
+
+```
+from fullmap_carracing import FullMapCarRacing
+from gym.wrappers.time_limit import TimeLimit
+env = TimeLimit(FullMapCarRacing(),max_episode_steps=1000)
+...
+```
+
+Note that the time limit of 1000 timesteps is to ensure that behavior is identical to that of the
+built-in CarRacing-v0 environment.
+
